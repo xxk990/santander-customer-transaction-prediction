@@ -12,9 +12,9 @@ from sklearn.model_selection import train_test_split
 from sklearn.model_selection import KFold, StratifiedKFold
 from numba import jit
 from sklearn import preprocessing
-train_df = pd.read_csv("train3.csv")
+train_df = pd.read_csv("train.csv")
 feature1 = train_df.columns.values.tolist()
-test_df = pd.read_csv("test3.csv")
+test_df = pd.read_csv("test.csv")
 features = [c for c in train_df.columns if c not in ['ID_code', 'target']]
 target = train_df['target']
 train_df = preprocessing.scale(train_df[features])
