@@ -50,7 +50,6 @@ for fold_, (trn_idx, val_idx) in enumerate(skf.split(train_df.values, target.val
     num_round = 1000000
     clf = lgb.train(param2, trn_data, num_round, valid_sets = [trn_data, val_data], verbose_eval=1000, early_stopping_rounds = 3000)
     oof[val_idx] = clf.predict(train_df.iloc[val_idx][features], num_iteration=clf.best_iteration)
-    #predictions += clf.predict(test_df[features], num_iteration=clf.best_iteration) / 5
 print("CV score: {:<8.5f}".format(roc_auc_score(target, oof)))
 
 sub_df = pd.DataFrame({"ID_code":test_df["ID_code"].values})
